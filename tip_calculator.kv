@@ -1,0 +1,70 @@
+<TipCalculator>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 10
+
+    # Title label
+    Label:
+        text: "Tip Calculator"
+        font_size: '24sp'
+        size_hint_y: None
+        height: 40
+
+    # Input for Bill Amount
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 40
+        Label:
+            text: "Bill Amount:"
+            font_size: '18sp'
+            size_hint_x: 0.4
+        TextInput:
+            id: amount_box
+            hint_text: "Enter Bill Amount"
+            font_size: '18sp'
+            multiline: False
+            input_filter: 'float'
+
+    # Service Level Selection
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 40
+        Label:
+            text: "Service Quality:"
+            font_size: '18sp'
+            size_hint_x: 0.4
+        Spinner:
+            id: service_spinner
+            text: "Select . . ."
+            values: ["Poor", "OK", "Good", "Great"]
+            font_size: '18sp'
+
+    # Calculate Button
+    Button:
+        text: "Calculate Tip"
+        font_size: '18sp'
+        size_hint_y: None
+        height: 50
+        on_release: root.calculate_tip()
+
+    # Results Grid
+    GridLayout:
+        cols: 2
+        size_hint_y: None
+        height: 100
+        Label:
+            text: "Tip Amount:"
+            font_size: '18sp'
+        Label:
+            id: tip_label
+            text: root.tip_amount
+            font_size: '18sp'
+        Label:
+            text: "Total Bill:"
+            font_size: '18sp'
+        Label:
+            id: total_label
+            text: root.total_bill
+            font_size: '18sp'
